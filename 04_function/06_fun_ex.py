@@ -22,6 +22,6 @@ while True:
     menu = int(input("메뉴 입력 => "))
     if menu==0:
         print("그냥 나가버리기")
-        break;
+        break
     else:
         times_table(menu)
