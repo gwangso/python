@@ -20,7 +20,7 @@ def scroll_fun(driver):
 
         driver.execute_script("window.scrollTo(0, document.documentElement.scrollHeight)")
         time.sleep(1)
-
+        
         after_height = driver.execute_script("return document.documentElement.scrollHeight")   
         print(after_height)
         

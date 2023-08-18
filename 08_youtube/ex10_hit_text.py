@@ -11,8 +11,6 @@ time.sleep(2)
 
 titles = driver.find_elements(By.XPATH, '//*[@id="video-title-link"]')
 
-
-
 for title in titles:
     if title.get_attribute("aria-label"):
         # aria-label 속성값 가져오기
@@ -23,5 +21,4 @@ for title in titles:
         hits = int(hits.replace(",",""))
         print("제목 :", title.get_attribute("title"))
         print("조회수 :", hits)
-
-        
+print(len(titles))
