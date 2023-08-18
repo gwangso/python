@@ -11,5 +11,20 @@ driver.get("https://www.youtube.com/")
 # javascript로 현제 페이지 높이값 가져오기
 # execute_script(): javascript 코드를 실행해주는 함수
 # javascript 실행값으 파이썬 변수로 받으려면 return을 작성해야 함
-h = driver.execute_script("return document.documentElement.scrollHeight")
-print(h)
+
+# h1: 처음페이지 열었을 때 높이 값
+
+h1 = driver.execute_script("return document.documentElement.scrollHeight")
+print("처음높이 : ", h1)
+
+driver.execute_script("window.scrollTo(0,document.documentElement.scrollHeight)")
+time.sleep(1)
+
+h2 = driver.execute_script("return document.documentElement.scrollHeight")
+print("두번째 높이: ", h2)
+
+driver.execute_script("window.scrollTo(0,document.documentElement.scrollHeight)")
+time.sleep(1)
+
+h3 = driver.execute_script("return document.documentElement.scrollHeight")
+print("세번째 높이: ", h3)
