@@ -1,5 +1,5 @@
 ## 판다스(pandas)
-[판다스](https://pandas.pydata.org/)
+- [판다스 홈페이지](https://pandas.pydata.org/)
 - 데이터 조작 및 분석용 라이브러리
 - 1차원(Series), 2차원(DateFrame) 데이터를 다룰 수 있으며, JSON, csv, xls 등 다야한 타입과 호환
 - Series
