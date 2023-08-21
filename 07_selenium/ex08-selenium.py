@@ -9,9 +9,9 @@ driver = webdriver.Chrome()
 driver.get("https://getbootstrap.kr/docs/5.3/getting-started/introduction/")
 driver.maximize_window()
 
-element = WebDriverWait(driver, 100)
-element.until(EC.presence_of_element_located((By.CLASS_NAME, "bd-links-link.d-inline-block.rounded")))
+element = WebDriverWait(driver, 3)
+element.until(EC.presence_of_element_located((By.CLASS_NAME, "bd-links-link d-inline-block rounded")))
 
-nav_link = driver.find_elements(By.CLASS_NAME, "bd-links-link.d-inline-block.rounded")
+nav_link = driver.find_elements(By.CLASS_NAME, "bd-links-link d-inline-block rounded")
 for n in nav_link:
     print(n.text)

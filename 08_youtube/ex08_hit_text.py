@@ -1,11 +1,5 @@
 # 조회수값 추출하기
 
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-import time
-
-
 aria_label = "16 Y/O UNDERDOG vs. 7-TIME CHAMP 조회수 - Classic Tetris World Championship 2018 Final Round 게시자: Classic Tetris 4년 전 42분 조회수 18,934,958회"
 
 # find(): 해당 변수의 시작지점 부터 찾음
