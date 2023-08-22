@@ -9,6 +9,10 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import pandas as pd
 
+#한글깨짐 방지
+plt.rcParams['font.family'] = 'Malgun Gothic'
+plt.rcParams['axes.unicode_minus'] = False
+
 def scroll_func():
     run = True
     while run:
@@ -62,6 +66,17 @@ for title in title_list:
 
 word_list_count = Counter(word_list)
 
+# 단어로 이루어진 리스트 생성
+words = []
+for word, count in word_list_count.most_common(5):
+    words.append(word)
+# 파이썬은 위에 있는 문장을 한줄로 줄일 수 있다
+# words = [word for word, count in word_list_count.most_common(5)]
+# 횟수로 이루어진 리스트 생성 
+counts = [count for word, count in word_list_count.most_common(5)]
+plt.bar(words, counts)
+plt.show()
+
 masking_image = np.array(Image.open("twiter.png"))
 
 wc = WordCloud(
@@ -85,4 +100,4 @@ data_list = pd.DataFrame(
     }
 )
 
-data_list.sort_values(by=["hits"]).to_csv("./result.csv", encoding="UTF-8-sig")
+data_list.sort_values(by=["hits"],ascending=False).to_csv("./result.csv", encoding="UTF-8-sig")
