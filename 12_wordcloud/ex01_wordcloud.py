@@ -28,3 +28,5 @@ plt.imshow(result)
 # 이미지 출력
 plt.show()
 
+wc.to_file('wordcloud_result.png')
+

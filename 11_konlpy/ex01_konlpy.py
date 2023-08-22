@@ -34,7 +34,7 @@ for word, tag in okt.pos(text):
     print(word, tag)
 
 word_list = []
-# a명사, 형용사만 따로 추력
+# 명사, 형용사만 따로 출력
 for word, tag in okt.pos(text):
     if tag in ['Noun', 'Adjective'] : #명사만
         # print(word, tag)
