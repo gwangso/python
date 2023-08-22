@@ -8,6 +8,7 @@ from PIL import Image
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import pandas as pd
+import pymysql
 
 #한글깨짐 방지
 plt.rcParams['font.family'] = 'Malgun Gothic'
@@ -26,7 +27,7 @@ def scroll_func():
         if before_height == after_height:
             run=False
         elif int(after_height) >= 50000:
-            run=False    
+            run=False
 
 driver = webdriver.Chrome()
 driver.get("https://www.youtube.com/feed/trending")
@@ -55,6 +56,20 @@ for data in crawlling_data:
         if data.text not in title_list:
             title_list.append(data.text)
             hits_list.append(hits)
+
+conn = pymysql.connect(
+    host='127.0.0.1',
+    user='user_python',
+    password='1234',
+    db='db_python',
+    charset='utf8mb4'
+)
+
+cur = conn.cursor()
+sql = "insert into `table1`(title, hit) values(%s, %s);"
+tuple_result = list(zip(title_list, hits_list))
+cur.executemany(sql, tuple_result)
+conn.commit()
 
 okt = Okt()
 
